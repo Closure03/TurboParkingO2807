@@ -14,4 +14,9 @@ public class ControladorPrincipal {
     public String cargarPaginaPrincipal() {
         return "index";
     }
+    
+    @GetMapping("inicio-sesion")
+    public String cargarInicioSesion() {
+        return "inicio_sesion";
+    }
 }
