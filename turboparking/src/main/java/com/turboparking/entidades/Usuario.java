@@ -1,17 +1,47 @@
 package com.turboparking.entidades;
 //Unir esta clase con la base de datos
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+
+@Entity(name="tusuario")
 public class Usuario {
+    
+    @Id
+    @Column(name="id_tusuario", nullable=false)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
+    
+    @Column(name="nom_tusuario", length=45, nullable=false)
     private String nombre;
-    private Integer id;
-    private Integer cedula;
+    
+    @Column(name="ced_tusuario", length=40, nullable=false, unique=true)
+    private String cedula;
+    
+    @Column(name="correo_tusuario", length=45, nullable=false, unique=true)
     private String correo;
+    
+    @Column(name="hora_tusuario", length=45, nullable=false)
     private String horaInicioActividad;
+    
+    @Column(name="contra_tusuario", length=45, nullable=false)
     private String contraseña;
 
-    public Usuario(String nombre, Integer id, Integer cedula, String correo, String horaInicioActividad, String contraseña) {
+    public Usuario(String nombre, Integer id, String cedula, String correo, String horaInicioActividad, String contraseña) {
         this.nombre = nombre;
         this.id = id;
+        this.cedula = cedula;
+        this.correo = correo;
+        this.horaInicioActividad = horaInicioActividad;
+        this.contraseña = contraseña;
+    }
+    
+    public Usuario(String nombre, String cedula, String correo, String horaInicioActividad, String contraseña) {
+        this.nombre = nombre;
         this.cedula = cedula;
         this.correo = correo;
         this.horaInicioActividad = horaInicioActividad;
@@ -42,11 +72,11 @@ public class Usuario {
         this.id = id;
     }
 
-    public Integer getCedula() {
+    public String getCedula() {
         return cedula;
     }
 
-    public void setCedula(Integer cedula) {
+    public void setCedula(String cedula) {
         this.cedula = cedula;
     }
 
