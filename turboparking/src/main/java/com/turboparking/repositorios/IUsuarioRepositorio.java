@@ -13,5 +13,7 @@ import org.springframework.stereotype.Repository;
 public interface IUsuarioRepositorio extends JpaRepository<Usuario, Integer> {
     
     //Buscar un usuario por en nombre del campo
-    public List<Usuario> findByNombre(String criterio);
+    public List<Usuario> findByNombreContainingOrCedulaContaining(String nombre, String cedula);
+    public List<Usuario> findBycedula(String cedula);
+    public List<Usuario> findByCorreoContainingOrContrasenaContaining(String correo, String contra);
 }   

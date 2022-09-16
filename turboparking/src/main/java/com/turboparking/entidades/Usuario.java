@@ -1,5 +1,5 @@
 package com.turboparking.entidades;
-//Unir esta clase con la base de datos
+//Mapeo esta clase con la base de datos
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -8,52 +8,42 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 
-@Entity(name="tusuario")
+@Entity(name="tusuarios")
 public class Usuario {
     
     @Id
-    @Column(name="id_tusuario", nullable=false)
+    @Column(name="id_tusuarios")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     
-    @Column(name="nom_tusuario", length=45, nullable=false)
+    @Column(name="nom_tusuarios", length=45, nullable=false)
     private String nombre;
     
-    @Column(name="ced_tusuario", length=40, nullable=false, unique=true)
+    @Column(name="ced_tusuarios", length=40, nullable=false, unique=true)
     private String cedula;
     
-    @Column(name="correo_tusuario", length=45, nullable=false, unique=true)
+    @Column(name="correo_tusuarios", length=45, nullable=false, unique=true)
     private String correo;
     
-    @Column(name="hora_tusuario", length=45, nullable=false)
-    private String horaInicioActividad;
-    
-    @Column(name="contra_tusuario", length=45, nullable=false)
-    private String contraseña;
+    @Column(name="contra_tusuarios", length=45, nullable=false)
+    private String contrasena;
 
-    public Usuario(String nombre, Integer id, String cedula, String correo, String horaInicioActividad, String contraseña) {
+    public Usuario(String nombre, Integer id, String cedula, String correo, String contrasena) {
         this.nombre = nombre;
         this.id = id;
         this.cedula = cedula;
         this.correo = correo;
-        this.horaInicioActividad = horaInicioActividad;
-        this.contraseña = contraseña;
+        this.contrasena = contrasena;
     }
     
-    public Usuario(String nombre, String cedula, String correo, String horaInicioActividad, String contraseña) {
+    public Usuario(String nombre, String cedula, String correo, String contrasena) {
         this.nombre = nombre;
         this.cedula = cedula;
         this.correo = correo;
-        this.horaInicioActividad = horaInicioActividad;
-        this.contraseña = contraseña;
+        this.contrasena = contrasena;
     }
 
     public Usuario() {
-    }
-
-    public Usuario(String correo, String contraseña) {
-        this.correo = correo;
-        this.contraseña = contraseña;
     }
 
     public String getNombre() {
@@ -88,24 +78,16 @@ public class Usuario {
         this.correo = correo;
     }
 
-    public String getHoraInicioActividad() {
-        return horaInicioActividad;
+    public String getContrasena() {
+        return contrasena;
     }
 
-    public void setHoraInicioActividad(String horaInicioActividad) {
-        this.horaInicioActividad = horaInicioActividad;
-    }
-
-    public String getContraseña() {
-        return contraseña;
-    }
-
-    public void setContraseña(String contraseña) {
-        this.contraseña = contraseña;
+    public void setContrasena(String contrasena) {
+        this.contrasena = contrasena;
     }
 
     @Override
     public String toString() {
-        return "Usuario{" + "nombre=" + nombre + ", id=" + id + ", cedula=" + cedula + ", correo=" + correo + ", horaInicioActividad=" + horaInicioActividad + ", contrase\u00f1a=" + contraseña + '}';
+        return "Usuario{" + "nombre=" + nombre + ", id=" + id + ", cedula=" + cedula + ", correo=" + correo + ", contrase\u00f1a=" + contrasena + '}';
     }  
 }

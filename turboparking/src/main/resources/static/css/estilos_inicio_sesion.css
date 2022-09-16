@@ -1,10 +1,50 @@
 /* LOS ESTILSO DEL INICIO SESIÓN */
 * {
     padding: 0px;
-    margin:0px;
+    margin: 0px;
 }
 
-html {
-    background-color: #f5f6fA;
+.principal {
+    display:flex;
+    width: auto;
+    heigth: auto;
+}
+
+.contenido-form {
+    background-color: white;
+    text-align: center;
+    border-radius: 10px;
+}
+
+.contenido-form .svg {
+    width: 1100px;
+    height: auto;
+    position: relative;
+    top: 0px;
+}
+
+.contenido-form form {
+    margin: 20px 0px;
+    padding: 50px 200px;
+}
+
+.contenido-form form input {
+    font-weight: bold;
+    border: 2px solid #0022E3;
+}
+
+.contenido-form form button {
+    background-color: #000078;
+    color: white;
+    font-weight: bold;
+    border-color: white;
+}
+
+.navbar {
+    background-color:#000078;
+    color: white;
+    text-align: center;
+    align-items: center;
+    width: 100%;
 }
 

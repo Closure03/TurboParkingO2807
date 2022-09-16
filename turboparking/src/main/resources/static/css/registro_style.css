@@ -1,0 +1,58 @@
+* {
+    padding: 0px;
+    margin: 0px;
+}
+
+body {
+    background-image: url(/utilidades/img_fondo.png);
+    background-size: cover;
+    background-repeat:no-repeat;
+    font-weight: bold;
+}
+
+.principal {
+    background-color: #000070;
+    Opacity: 90%;
+    color: white;
+    clip-path: polygon(40% 0, 100% 0, 100% 100%, 53% 100%);
+    padding: 25px;
+}
+
+.principal aside {
+    text-align: right;
+}
+
+.principal h1{
+    font-weight: bold;
+    font-size: 90px;
+    padding: 50px;
+    letter-spacing: 2px;
+}
+
+.principal h1 span {
+    display: block;
+    letter-spacing: 2px;
+}
+
+.principal p {
+    padding: 50px;
+    font-weight: 400;
+    font-size: 30px;
+    letter-spacing: 2px;
+}
+
+.principal aside button {
+    margin: 40px;
+    border: .5px solid black;
+    padding: 10px 12px;
+    border-radius: 5px;
+    
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.principal aside button a {
+    color: #FF9E00;
+    text-decoration: none;
+}
+

@@ -1,6 +1,5 @@
 /*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ * ACA SE GUSRDAN LOS MÉTODOS CRUD DE USUARIO
  */
 package com.turboparking.servicios;
 
@@ -32,9 +31,18 @@ public class UsuarioServicio {
         return contenido;
     }
     
-    public List<Usuario> consultarUsuarioNombre(String nombre) {
-        List<Usuario> listaUsuario = repo.findByNombre(nombre);
+    public List<Usuario> consultarTodosUsuarios() {
+        List<Usuario> g = repo.findAll();
+        return g;
+    }
+    
+    public List<Usuario> consultarUsuarioNombreOCedula(String nombre) {
+        List<Usuario> listaUsuario = repo.findByNombreContainingOrCedulaContaining(nombre, nombre);
         return listaUsuario;
+    }
+    
+    public List<Usuario> consultarUsuarioCedula(String cedula) {
+        return repo.findBycedula(cedula);
     }
     /*
     public List<Usuario> consultarTodosLosUsuario() {
@@ -47,4 +55,14 @@ public class UsuarioServicio {
         repo.delete(user);
         //El método deleteAll() elimina todos los datos de la tabla
     }
+    
+    public Boolean inicioSesion(String correo, String contra){
+        Boolean bandera = true;
+        List<Usuario> user = repo.findByCorreoContainingOrContrasenaContaining(correo, contra);
+        if (user == null) {
+           bandera = false;
+        }
+        return bandera;
+    }
+    
 }
