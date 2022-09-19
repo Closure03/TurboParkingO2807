@@ -23,7 +23,7 @@ public class VehiculoServicio {
     
     //CARGAR TODOS LOS VEHICULOS QUE SEAN DE UN TIPO ESPECOFICO (MARCA)
     public List<Vehiculo> cargarVehiculoTipo(String criterio) {
-        return vehiculoRepo.findBytipoVehiculoContaining(criterio);
+        return vehiculoRepo.findBytipoVehiculoContainingOrMatriculaContaining(criterio, criterio);
     }
     
     //CARGAR EL VEHICULO CON LA MATRICULA

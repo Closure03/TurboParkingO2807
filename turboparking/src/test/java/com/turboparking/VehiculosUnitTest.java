@@ -25,8 +25,8 @@ public class VehiculosUnitTest {
     
     @Test
     public void comprobarCreacionVehiculo() {
-        Usuario miUsu = miUsuario.consultarUsuario(13);
-        Vehiculo nuevoVehiculo = new Vehiculo("Kia", "GTC-189", miUsu);
+        Usuario miUsu = miUsuario.consultarUsuario(14);
+        Vehiculo nuevoVehiculo = new Vehiculo("Mazda", "GGF-178", miUsu);
         
         Assertions.assertDoesNotThrow(() -> {
             miVehiculo.guardarVehiculo(nuevoVehiculo);
@@ -43,7 +43,7 @@ public class VehiculosUnitTest {
     @Test
     public void comprobarCargarVehiculoTipo() {
         Assertions.assertDoesNotThrow(() -> {
-            miVehiculo.cargarVehiculoTipo("renault");
+            miVehiculo.cargarVehiculoTipo("Mazda");
         }, "Error al consultar el Vehiculo en la matricula");
     }
     

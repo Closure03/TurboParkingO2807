@@ -58,11 +58,10 @@ public class UsuarioServicio {
     
     public Boolean inicioSesion(String correo, String contra){
         Boolean bandera = true;
-        List<Usuario> user = repo.findByCorreoContainingOrContrasenaContaining(correo, contra);
+        Usuario user = repo.findByCorreoAndContrasena(correo, contra);
         if (user == null) {
-           bandera = false;
+            bandera = false;
         }
         return bandera;
     }
-    
 }

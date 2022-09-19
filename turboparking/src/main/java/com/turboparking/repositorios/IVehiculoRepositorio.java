@@ -16,7 +16,7 @@ public interface IVehiculoRepositorio extends JpaRepository<Vehiculo, Integer> {
     TAMBIÉN CREAR MÉTODOS CRUD.
     */
     
-    public List<Vehiculo> findBytipoVehiculoContaining(String tipoNombre);
+    public List<Vehiculo> findBytipoVehiculoContainingOrMatriculaContaining(String tipoNombre, String matricula);
     
     public Vehiculo findByMatriculaContaining(String matricula);
 }
