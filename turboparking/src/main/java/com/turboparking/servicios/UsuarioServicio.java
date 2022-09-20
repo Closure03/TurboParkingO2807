@@ -64,4 +64,9 @@ public class UsuarioServicio {
         }
         return bandera;
     }
+    
+    public Usuario consultaUsuarioCorero(String correo) {
+        Usuario user = repo.findByCorreoContaining(correo);
+        return user;
+    }
 }

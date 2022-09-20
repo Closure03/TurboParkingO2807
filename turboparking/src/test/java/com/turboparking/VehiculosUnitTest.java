@@ -24,6 +24,7 @@ public class VehiculosUnitTest {
     private UsuarioServicio miUsuario;
     
     @Test
+    @Disabled //Ya se testeo
     public void comprobarCreacionVehiculo() {
         Usuario miUsu = miUsuario.consultarUsuario(14);
         Vehiculo nuevoVehiculo = new Vehiculo("Mazda", "GGF-178", miUsu);

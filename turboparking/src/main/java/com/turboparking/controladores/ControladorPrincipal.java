@@ -12,6 +12,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -30,6 +31,30 @@ public class ControladorPrincipal {
         return "index";
     }
     
+    //ACA ENVIAMOS EL INDEX CUANDO YA HAYA INICIADO SESIÓN
+    @GetMapping("/{id}")
+    public String cargarPrincipalSesion(Model model, @PathVariable int id) {
+        Usuario user = servicio.consultarUsuario(id);
+        model.addAttribute("usuario", user);
+        return "indexsesion";
+    }
+    /*
+    @GetMapping("/perfil/${id}")
+    public String cargarPerfilSesion(Model model, @PathVariable int id) {
+        Usuario user = servicio.consultarUsuario(id);
+        model.addAttribute("usuario", user);
+        return "perfil";
+    }
+    */
+    /*
+    //PERFIL DE LOS USUARIOS
+    @GetMapping("/perfil/${id}")
+    public String cargarPerfilUsuario(Model model, @PathVariable int id) {
+        Usuario user = servicio.consultarUsuario(id);
+        model.addAttribute("usuario", user);
+        return "indexsesion";
+    }
+    */
     @GetMapping("/funcionamiento")
     public String cargarFuncionamiento() {
         return "funcionamiento";
@@ -83,7 +108,9 @@ public class ControladorPrincipal {
     public String comprobarInicioSesion(@RequestParam(value="criterioUsu", required=true) String correo, @RequestParam(value="criterioContra", required=true) String contra) {    
         Boolean bandera = servicio.inicioSesion(correo, contra);
         if (bandera) { 
-            return "redirect:/"; 
+            Usuario user = servicio.consultaUsuarioCorero(correo);
+            int id = user.getId();
+            return "redirect:/" + id; 
         } 
         return "iniciosesion";
     }

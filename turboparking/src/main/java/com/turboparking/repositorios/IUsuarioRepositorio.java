@@ -16,4 +16,5 @@ public interface IUsuarioRepositorio extends JpaRepository<Usuario, Integer> {
     public List<Usuario> findByNombreContainingOrCedulaContaining(String nombre, String cedula);
     public List<Usuario> findBycedula(String cedula);
     public Usuario findByCorreoAndContrasena(String correo, String contra);
+    public Usuario findByCorreoContaining(String correo);
 }   

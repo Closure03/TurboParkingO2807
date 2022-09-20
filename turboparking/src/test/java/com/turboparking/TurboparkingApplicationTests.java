@@ -39,7 +39,7 @@ class TurboparkingApplicationTests {
     @Test
     @Disabled //Ya se testeo
     public void verificarConsultarUsuario() { 
-            Usuario g = miServicio.consultarUsuario(3);
+            Usuario g = miServicio.consultarUsuario(13);
             System.out.println(g);
             Assertions.assertTrue(g != null, "Mensaje de Error, no se pudo consultar");//Verificador para saber si esta funcionando
     }
@@ -58,6 +58,7 @@ class TurboparkingApplicationTests {
     }
     
     @Test
+    @Disabled //Ya se testeo
     public void verificarConsultaUsuarios() {
         miServicio.consultarTodosUsuarios();
     }  
@@ -65,5 +66,10 @@ class TurboparkingApplicationTests {
     @Test
     public void verificarSiCorreoYcontrasenaFunciona() {
         System.out.println(miServicio.inicioSesion("angelo.com", "16"));
+    }
+    
+    @Test
+    public void verificarSiCorreoFunciona() {
+        System.out.println(miServicio.consultaUsuarioCorero("fabian@gmail.com"));
     }
 }
