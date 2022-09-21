@@ -38,14 +38,21 @@ public class ControladorPrincipal {
         model.addAttribute("usuario", user);
         return "indexsesion";
     }
-    /*
-    @GetMapping("/perfil/${id}")
+    //ACTUALIZAR LOS DATOS DEL USUARIO, TENIENDO EN CUENTA EL ID POR MEDIO DE LA URL
+    @GetMapping("/{id}/perfil")
     public String cargarPerfilSesion(Model model, @PathVariable int id) {
         Usuario user = servicio.consultarUsuario(id);
         model.addAttribute("usuario", user);
         return "perfil";
     }
-    */
+    //MÉTODO POST PARA ENVIAR EL NUEVO USUARIO ACTUALIZADO
+    @PostMapping("/{id}")
+    public String guardarPerfilSesion(@ModelAttribute Usuario g) {
+        servicio.actualizarUsuario(g);
+        int id = g.getId();
+        return "redirect:/" +id;
+    }
+    
     /*
     //PERFIL DE LOS USUARIOS
     @GetMapping("/perfil/${id}")

@@ -39,19 +39,19 @@
             <form class="row g-3" action="/" method="post" th:object="${objetoUsuario}">
                 <div>
                     <label for="name">Nombre</label>
-                    <input th:field="*{nombre}" type="text" class="form-control" id="name" placeholder="Example">
+                    <input th:field="*{nombre}" type="text" class="form-control" id="name" placeholder="Example" required>
                 </div>
                 <div>
                     <label for="ced">Número de Identidad</label>
-                    <input th:field="*{cedula}" type="text" class="form-control" id="ced" placeholder="0123456789">
+                    <input th:field="*{cedula}" type="text" class="form-control" id="ced" placeholder="0123456789" required>
                 </div>
                 <div>
                     <label for="email">Correo Electrónico</label>
-                    <input th:field="*{correo}" type="text" class="form-control" id="email" placeholder="Email@example.com">
+                    <input th:field="*{correo}" type="text" class="form-control" id="email" placeholder="Email@example.com" required>
                 </div>
                 <div>
                     <label for="inputPassword2">Contraseña</label>
-                    <input th:field="*{contrasena}" type="password" class="form-control" id="inputPassword2" placeholder="Contraseña">
+                    <input th:field="*{contrasena}" type="password" class="form-control" id="inputPassword2" placeholder="Contraseña" required>
                 </div>
                 <div class="col-auto">
                     <button type="submit" class="btn" style="background-color: #FF6D00; color: white; font-weight: bold;">Registrarme</button>
