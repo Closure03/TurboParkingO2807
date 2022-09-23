@@ -4,7 +4,8 @@
 }
 
 nav {
-    background-color:#0022E3;
+    /*background-color:#0022E3;*/
+    background-image: url(/utilidades/fondo2.png);
     margin-bottom: 50px;
 }
 

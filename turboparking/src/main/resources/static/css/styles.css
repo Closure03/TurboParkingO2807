@@ -8,249 +8,55 @@
     right: 0.01%;
     top: 0.01%;
     bottom: 0%;
-
-    background: rgba(0, 34, 227, 1);
-    ;
-
+    color: white;
+    /*background: rgba(0, 34, 227, 1);*/
+    background-image: url(/utilidades/fondo1.png);
+    font-size: 20px;
+    font-weight: bold;
+    overflow-x: hidden;
 }
 
-/*----TurboparkingLogo--------------------------------*/
-.turbologo {
+/* MODIFICACIÓN DEL SVG */
+.icon {
+    margin: 50px;
+    position: relative;
+    top: -12px;
+}
+
+/* SECCIONES*/
+.contenido-menu {
+    margin: 50px;
+    align-items: right;
+}
+
+.contenido-menu ul li {
+    margin: 0px 20px;
+}
+
+/* MI SECCIÓN PARA LOS BANNERS*/
+.banners {
+    position: relative;
+    left: -150px;
+    top: -25px;
+}
+
+.banners aside {
+    display:flex;
+}
+
+aside .main {
+    width: 80%;
+}
+
+.main-img {
+    align-items: right;
+    text-align: right;
+    margin: 60px 0px;
+}
+
+.main-img img {
     position: absolute;
-    width: 500px;
-    height: 50px;
-    left: 10px;
-    top: 32px;
-
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    font-style: normal;
-    font-weight: 400px;
-    font-size: 90px;
-    line-height: 76px;
-
-    color: #FFFFFF;
-}
-
-.contenido li.contenido-list1{
-    /* Cómo funciona */
-position: absolute;
-width: 200px;
-height: 100px;
-left: 1000px;
-top: 15px;
-
-font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-font-style: normal;
-font-weight: 500;
-font-size: 25px;
-line-height: 30px;
-/* identical to box height */
-
-color: #FF9E00;
-
-
-}
-
-.contenido li.contenido-list2{
-    /* reserva tu parking */
-position: absolute;
-width: 250px;
-height: 60px;
-left: 700px;
-top: 15px;
-
-font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-font-style: normal;
-font-weight: 400;
-font-size: 25px;
-line-height: 30px;
-/* identical to box height */
-
-color: #eeae4e;
-
-
-}
-
-.stframe {
-    box-sizing: border-box;
-    position: absolute;
-    left: -1.88%;
-    right: 32.76%;
-    top: 20%;
-    bottom: 5.02%;
-
-    background: rgba(0, 0, 153, 1);
-    border: 1px solid #5e3232;
-
-    border-radius: 30px;
-}
-
-.imgindex {
-    position: absolute;
-    width: 1346px;
-    height: 826px;
-    left: -200px;
-    top: -100px;
-}
-
-.main-banner section.frmnd {
-/* Rectangle 5 */
-box-sizing: border-box;
-    position: absolute;
-    left: 0%;
-    right: 32.76%;
-    top: 20%;
-    bottom: 5.02%;
-
-    background: #2525a5;
-    border: 1px solid #5e3232;
-
-    border-radius: 30px;
-}
-
-.ndfrm {
-    /* PARQUEO 2 1 */
-position: absolute;
-left: 125.94%;
-right: -80.31%;
-top: 88.98%;
-bottom: -52.31%;
-transform: rotate(-180deg);
-}
-
-br{
-    background-color: black !important;
-}
-.ndimg {
-    /* PARQUEO 2 1 */
-position: absolute;
-left: 125.94%;
-right: -50.31%;
-top: 88.98%;
-bottom: -52.31%;
-
-transform: rotate(-180deg);
-}
-
-/* Encuentra y parquea fácilmente */
-.encuentratuparking {
-    position: absolute;
-    width: 660px;
-    height: 286px;
-    left: 680px;
-    top: -100px;
-
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 90px;
-    line-height: 96px;
-
-    color: #FFFFFF;
-}
-
-
-.btndfree {
-    position: absolute;
-    width: 280px;
-    height: 55px;
-    left: 923px;
-    top: 844px;
-
-    background: #856868;
-    border-radius: 10px;
-}
-
-/* Sómos la forma más rápida y sencilla para gestionar tu aparcamiento en Bogotá */
-.txtframet {
-    position: absolute;
-    width: 510px;
-    height: 130px;
-    left: 693px;
-    top: 320px;
-
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 40px;
-    line-height: 40px;
-    color: #FFFFFF;
-}
-
-.contenido ul section h1 {
-    /* Ingresar */
-    position: absolute;
-    width: 120px;
-    height: 40px;
-    left: 1400px;
-    text-align: center;
-    top: -15px;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 30px;
-    line-height: 30px;
-    /* identical to box height */
-    color: #3d31e9;
-    background-color: white ;
-    border-radius: 10%;
-}
-
-.contenido ul section h2 {
-    /* Registrarme */
-    position: absolute;
-    width: 180px;
-    height: 40px;
-    left: 84%;
-    top: 0px;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 30px;
-    line-height: 30px;
-    /* identical to box height */
-    color: #FF9E00;
-    text-align: center;
-    border-radius: 18% 5% ;
-
-    background-color: #f9f9ff;
-}
-
-.download {
-    /* Descarga Gratis */
-    position: absolute;
-    width: 23%;
-    height: 1.2em;
-    border: black 0.03px solid;
-    left: 68%;
-    top: 80%;
-    margin: auto auto; 
-    background-color: #3232ad;
-
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    font-style: normal;
-    font-weight: 20px;
-    font-size: 35px;
-    text-align: center;
-    border-radius: 10%;
-    color: #FFFFFF;
-
-
-}
-.nav-items{
-    position: fixed;
-    z-index: 1;
-    margin-top: 20px;
+    height: 84%;
     border-radius: 20px;
-    width: 100%;
-    height: calc(100% - 45px);
-    background: #FF902B;
-    top: -100vh;
-    text-align: center;
-    transition: all .4s;
-    flex-direction: column;
 }
 
-
-
-/*----------------------fin homepage--------------------------*/

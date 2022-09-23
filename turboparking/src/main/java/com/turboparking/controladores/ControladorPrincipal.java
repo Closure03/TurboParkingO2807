@@ -72,11 +72,6 @@ public class ControladorPrincipal {
         return "iniciosesion";
     }
     
-    @GetMapping("registro")
-    public String cargarRegistro() {
-        return "registro";
-    }
-    
     @GetMapping("lista/usuario")
     public String cargarListaUsuario(Model model, @RequestParam(value="criterio", required=false) String criterio) {
         if (criterio == null) {
@@ -95,6 +90,11 @@ public class ControladorPrincipal {
             model.addAttribute("vehiculos", servicioVehiculo.cargarVehiculoTipo(criterio));
         }
         return "listavehiculo";
+    }
+    
+    @GetMapping("registro")
+    public String cargarRegistro() {
+        return "registro";
     }
     
     @GetMapping("registro/usuario")
