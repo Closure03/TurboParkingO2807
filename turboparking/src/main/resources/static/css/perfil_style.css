@@ -6,4 +6,76 @@
 html,
 body {
     align-items: center;
+    background-image: url(/utilidades/fondo4.png);
+    overflow-x: hidden;
+}
+
+.carta-principal {
+    margin: 0px 400px;
+}
+
+.carta {
+    position: relative;
+    width: 741px;
+    height: 329px;
+    margin-top: -10px;
+    border-radius: 15px;
+    padding: 0px 40px;
+    text-align: center;
+}
+
+/*NOMBRE DEL USUARIO*/
+.carta .name-user {
+    font-size: 30px;
+    font-weight: lighter;
+}
+
+/*IMAGEN DE USUARIO*/
+.img-user {
+    position: relative;
+    top: -40px;
+}
+
+.principal nav {
+    margin: 50px;
+}
+
+/*SEGUNDA SECCIÓN DE LA CARTA*/
+.contenido-cedula {
+    text-align: left;
+}
+
+.contenido svg {
+    text-align: right;
+    margin-left: 500px;
+    margin-top: 10px;
+}
+
+/*ESTILOS DEL FORMULARIO*/
+.cont-formulario {
+    align-items: center;
+    margin-top: 20px;
+    margin: 0px 100px;
+}
+
+.formulario {
+    padding-left: 270px;
+    padding-right: 310px;
+    padding-bottom: 50px;
+}
+
+.cont-user {
+    padding-right: 40px;
+}
+
+.cont-user-check {
+    margin: 40px 0px;
+}
+
+.cont-user2 {
+    padding-right: 40px;
+}
+
+.cont-user-check2 {
+    margin: 10px 0px;
 }

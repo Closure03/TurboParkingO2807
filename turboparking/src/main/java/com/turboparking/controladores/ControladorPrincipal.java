@@ -31,6 +31,11 @@ public class ControladorPrincipal {
         return "index";
     }
     
+    @GetMapping("/funcionamiento")
+    public String cargarFuncionamiento() {
+        return "funcionamiento";
+    }
+    //CONTROLADORES DE USUARIO
     //ACA ENVIAMOS EL INDEX CUANDO YA HAYA INICIADO SESIÓN
     @GetMapping("/{id}")
     public String cargarPrincipalSesion(Model model, @PathVariable int id) {
@@ -38,6 +43,7 @@ public class ControladorPrincipal {
         model.addAttribute("usuario", user);
         return "indexsesion";
     }
+    
     //ACTUALIZAR LOS DATOS DEL USUARIO, TENIENDO EN CUENTA EL ID POR MEDIO DE LA URL
     @GetMapping("/{id}/perfil")
     public String cargarPerfilSesion(Model model, @PathVariable int id) {
@@ -45,12 +51,19 @@ public class ControladorPrincipal {
         model.addAttribute("usuario", user);
         return "perfil";
     }
+    
     //MÉTODO POST PARA ENVIAR EL NUEVO USUARIO ACTUALIZADO
     @PostMapping("/{id}")
-    public String guardarPerfilSesion(@ModelAttribute Usuario g) {
+    public String actualizarPerfilSesion(@ModelAttribute Usuario g) {
         servicio.actualizarUsuario(g);
         int id = g.getId();
         return "redirect:/" +id;
+    }
+    
+    @GetMapping("/eliminar/{id}")
+    public String eliminarCuentaUsuario(@PathVariable int id) {
+        servicio.eliminarUsuario(id);
+        return "redirect:/";
     }
     
     /*
@@ -62,10 +75,6 @@ public class ControladorPrincipal {
         return "indexsesion";
     }
     */
-    @GetMapping("/funcionamiento")
-    public String cargarFuncionamiento() {
-        return "funcionamiento";
-    }
     
     @GetMapping("inicio-sesion")
     public String cargarInicioSesion() {
@@ -122,6 +131,7 @@ public class ControladorPrincipal {
         return "iniciosesion";
     }
     
+    //CONTROLADORES DE VEHICULO
     //VA CONECTADO CON EL CONTRUCTOR DE VEHICULO
     @GetMapping("registro/vehiculo")
     public String cargarRegistroVehiculo(Model modelo) {

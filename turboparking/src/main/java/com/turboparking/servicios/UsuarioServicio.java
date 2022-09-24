@@ -51,9 +51,13 @@ public class UsuarioServicio {
     }
     Para el ROL de administrador
     */
-    public void eliminarUsuario(Usuario user) {
-        repo.delete(user);
+    public void eliminarUsuario(int id) {
+        repo.deleteById(id);
         //El método deleteAll() elimina todos los datos de la tabla
+    }
+    
+    public void eliminarUsuarioObjeto(Usuario user) {
+        repo.delete(user);
     }
     
     public Boolean inicioSesion(String correo, String contra){
