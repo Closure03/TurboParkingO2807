@@ -80,3 +80,9 @@ body {
     background-color: #fff; 
     font-weight: 700;
 }
+
+.volver-index {
+    position: fixed;
+    bottom: 25px;
+    left: 30px;
+}

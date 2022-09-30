@@ -64,10 +64,10 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                 </select>
                 <input type="hidden" class="form-control" th:value="${usuarios.id}" name="identificador" readonly>
             </div> 
-            <div class="col-auto">
+            <div class="col-auto" th="${user}">
                 <button type="submit" class="btn"
                     style="background-color: #FF6D00; color: white; font-weight: bold;">Registrar Vehiculo</button>
-                <button class="btn btn-secondary"><a href="/"
+                <button class="btn btn-secondary"><a th:href="${'/' + user.id}"
                 style="text-decoration:none; color: white; font-weight: bold">Cancelar</a></button>
             </div>
             <small style="color:#000078; text-align: right"><b>Continuando, aceptas Términos del Servicio y Política de Privacidad</b></small>
