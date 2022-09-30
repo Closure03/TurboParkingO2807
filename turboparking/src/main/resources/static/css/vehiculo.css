@@ -1,0 +1,82 @@
+* {
+    padding: 0px;
+    margin: 0px;
+}
+
+html,
+body {
+    background-image:url(/utilidades/fondo5.png);
+    background-size: contain;
+    align-items: center;
+}
+
+.principal nav div svg {
+    margin: 45px 40px;
+}
+
+.info-prin {
+    margin: 0px 150px;
+}
+
+/*ESTILOS DEL FORMULARIO*/
+.cuadrado {
+    border-radius: 30px;
+    padding: 20px;
+    margin: 20px;
+}
+
+.cuadrado .cont-user img {
+    margin: 10px 90px;
+}
+
+.formulario {
+    padding-left: 270px;
+    padding-right: 310px;
+    padding-bottom: 50px;
+}
+
+.text {
+    color: #00178F; 
+    font-size: 15px; 
+    font-weight: bolder;
+}
+
+.cont-text {
+    padding: 0px 20px;
+}
+
+.cont-user-check2 {
+    position: absolute;
+    right: 500px;
+    margin-top: 10px;
+}
+
+#img-car {
+    margin: 0px 130px;
+}
+
+.agregar-vh {
+    float: right;
+}
+
+.agregar-vh div {
+    position: fixed;
+    bottom: 25px;
+    right: 30px;
+}
+
+.agregar-vh div a {
+    background-color: #2ed573; 
+    font-weight: 700;
+    color: #fff;
+    transition-delay: .1s;
+    transition-duration: .3s;
+    transition-property: all;
+    transition-property: initial;
+    transition-timing-function: ease-in-out;
+}
+
+.agregar-vh div a:hover {
+    background-color: #fff; 
+    font-weight: 700;
+}

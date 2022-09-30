@@ -30,6 +30,7 @@
             <thead>
                 <tr>
                     <th scope="col">Id</th>
+                    <th scope="col">Apodo</th>
                     <th scope="col">Marca</th>
                     <th scope="col">Matricula</th>
                     <th scope="col">Usuario</th>
@@ -38,9 +39,10 @@
             <tbody>
                 <tr th:each="vehiculo : ${vehiculos}">
                     <th scope="row" th:text="${vehiculo.id}">...</th>
+                    <td th:text="${vehiculo.apodoVehiculo}">...</td>
                     <td th:text="${vehiculo.tipoVehiculo}">...</td>
                     <td th:text="${vehiculo.matricula}">...</td>
-                    <td th:text="${vehiculo.idTablaUsuario.nombre}">...</td>
+                    <td th:text="${vehiculo.usuario.nombre}">...</td>
                 </tr>
                 <tr th:if="${#lists.isEmpty(vehiculos)}">
                     <td colspan="5" style="text-align: center; font-size:15px; font-weight: bold;">No se encontraron registros</td>

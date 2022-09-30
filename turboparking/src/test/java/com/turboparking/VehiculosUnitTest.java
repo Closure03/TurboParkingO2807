@@ -24,10 +24,14 @@ public class VehiculosUnitTest {
     private UsuarioServicio miUsuario;
     
     @Test
-    @Disabled //Ya se testeo
-    public void comprobarCreacionVehiculo() {
-        Usuario miUsu = miUsuario.consultarUsuario(14);
-        Vehiculo nuevoVehiculo = new Vehiculo("Mazda", "GGF-178", miUsu);
+    @Disabled //Ya testeado
+    public void comprobarCreacionVehiculoSinApodo() {
+        Usuario miUsu = miUsuario.consultarUsuario(17);
+        Vehiculo nuevoVehiculo = new Vehiculo("Honda", "HHG-123", miUsu);
+        
+        if(nuevoVehiculo.getApodoVehiculo() == null){
+            nuevoVehiculo.setApodoVehiculo("Vehiculo");
+        }
         
         Assertions.assertDoesNotThrow(() -> {
             miVehiculo.guardarVehiculo(nuevoVehiculo);
@@ -35,28 +39,54 @@ public class VehiculosUnitTest {
     }
     
     @Test
+    @Disabled //Ya se testeo
+    public void comprobarCreacionVehiculoConApodo() {
+        Usuario miUsu = miUsuario.consultarUsuario(15);
+        Vehiculo nuevoVehiculo = new Vehiculo("Turbina", "Renault", "SVG-F56", miUsu);
+        
+        Assertions.assertDoesNotThrow(() -> {
+            miVehiculo.guardarVehiculo(nuevoVehiculo);
+        }, "Error al guardar Vehiculo");
+    }
+    
+    @Test
+    @Disabled //Ya se testeo
     public void comprobarCargarVehiculoMatricula() {
         Assertions.assertDoesNotThrow(() -> {
-            miVehiculo.cargarVehiculoMatricula("GGF-178");
+            miVehiculo.cargarVehiculoMatricula("SVG-F56");
         }, "Error al consultar el Vehiculo en la matricula");
     }
     
     @Test
+    @Disabled //Ya se testeo
     public void comprobarCargarVehiculoTipo() {
         Assertions.assertDoesNotThrow(() -> {
-            miVehiculo.cargarVehiculoTipo("Mazda");
+            miVehiculo.cargarVehiculoTipo("Kia");
         }, "Error al consultar el Vehiculo en la matricula");
     }
     
     @Test
-    @Disabled
+    @Disabled //Ya se testeo
     public void eliminarVehiculo() {
-        miVehiculo.eliminarVehiculo(5);
+        miVehiculo.eliminarVehiculo(11);
     }
     
     @Test
-    @Disabled
+    @Disabled //Ya se testeo
     public void comprobarEliminarVehiculoMatricula() {
-        miVehiculo.eliminarVehiculoMatricula("GTC-189");
+        miVehiculo.eliminarVehiculoMatricula("GGF-178");
+    }
+    
+    @Test
+    @Disabled //Ya testeado
+    public void consultarVehiculo() {
+        miVehiculo.cargarVehiculos();
+    }
+    
+    @Test
+    @Disabled //Ya testeado
+    public void comprobarConsultaDeVehiculoPorUsuario() {
+        Usuario miUsu = miUsuario.consultarUsuario(17);
+        miVehiculo.cargarVehiculoUsuario(miUsu);
     }
 }

@@ -4,6 +4,7 @@
  */
 package com.turboparking.servicios;
 
+import com.turboparking.entidades.Usuario;
 import com.turboparking.entidades.Vehiculo;
 import com.turboparking.repositorios.IVehiculoRepositorio;
 import java.util.List;
@@ -26,12 +27,22 @@ public class VehiculoServicio {
         return vehiculoRepo.findBytipoVehiculoContainingOrMatriculaContaining(criterio, criterio);
     }
     
+    //CARGAR VEHICULO ID
+    public Vehiculo cargarVehiculoId(int id) {
+        return vehiculoRepo.findById(id);
+    }
+    
     //CARGAR EL VEHICULO CON LA MATRICULA
     public Vehiculo cargarVehiculoMatricula(String criterio) {
         return vehiculoRepo.findByMatriculaContaining(criterio);
     }
     
-    //GUARDA VEHICULOS
+    //CARGAR VEHICULO CON EL USUARIO
+    public List<Vehiculo> cargarVehiculoUsuario(Usuario user) {
+        return vehiculoRepo.findByUsuarioIs(user);
+    }
+    
+    //CREAR Y ACTUALIZAR VEHICULOS
     public Vehiculo guardarVehiculo(Vehiculo g) {
         return vehiculoRepo.save(g);
     }
@@ -44,7 +55,7 @@ public class VehiculoServicio {
     */
     
     public boolean eliminarVehiculo(int id){
-        Vehiculo miCarro = vehiculoRepo.findById(id).get();
+        Vehiculo miCarro = vehiculoRepo.findById(id);
         if (miCarro == null) {
             return false;
         } else {

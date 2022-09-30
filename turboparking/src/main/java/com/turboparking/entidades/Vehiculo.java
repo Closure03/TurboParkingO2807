@@ -21,6 +21,9 @@ public class Vehiculo {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     
+    @Column(name="apodo_tvehiculos", length=30)
+    private String apodoVehiculo;
+    
     @Column(name="tipo_tvehiculos", nullable=false, length=30)
     private String tipoVehiculo;
     
@@ -28,23 +31,30 @@ public class Vehiculo {
     private String matricula;
     
     @ManyToOne
-    @JoinColumn(name="id_tusuarios")
-    private Usuario idTablaUsuario;
+    @JoinColumn(name="id_tusuarios", nullable=false)
+    private Usuario usuario;
 
-    public Vehiculo(int id, String tipoVehiculo, String matricula, Usuario idTablaUsuario) {
+    public Vehiculo(int id, String apodoVehiculo, String tipoVehiculo, String matricula, Usuario usuario) {
         this.id = id;
+        this.apodoVehiculo = apodoVehiculo;
         this.tipoVehiculo = tipoVehiculo;
         this.matricula = matricula;
-        this.idTablaUsuario = idTablaUsuario;
+        this.usuario = usuario;
     }
 
-    public Vehiculo(String tipoVehiculo, String matricula, Usuario idTablaUsuario) {
+    public Vehiculo(String tipoVehiculo, String matricula, Usuario usuario) {
         this.tipoVehiculo = tipoVehiculo;
         this.matricula = matricula;
-        this.idTablaUsuario = idTablaUsuario;
+        this.usuario = usuario;
+    }
+
+    public Vehiculo(String apodoVehiculo, String tipoVehiculo, String matricula, Usuario usuario) {
+        this.apodoVehiculo = apodoVehiculo;
+        this.tipoVehiculo = tipoVehiculo;
+        this.matricula = matricula;
+        this.usuario = usuario;
     }
     
-
     public Vehiculo() {
     }
 
@@ -72,16 +82,24 @@ public class Vehiculo {
         this.matricula = matricula;
     }
 
-    public Usuario getIdTablaUsuario() {
-        return idTablaUsuario;
+    public Usuario getUsuario() {
+        return usuario;
     }
 
-    public void setIdTablaUsuario(Usuario idTablaUsuario) {
-        this.idTablaUsuario = idTablaUsuario;
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
+
+    public String getApodoVehiculo() {
+        return apodoVehiculo;
+    }
+
+    public void setApodoVehiculo(String apodoVehiculo) {
+        this.apodoVehiculo = apodoVehiculo;
     }
 
     @Override
     public String toString() {
-        return "Vehiculo{" + "id=" + id + ", tipoVehiculo=" + tipoVehiculo + ", matricula=" + matricula + ", idTablaUsuario=" + idTablaUsuario + '}';
+        return "Vehiculo{" + "id=" + id + ", tipoVehiculo=" + tipoVehiculo + ", matricula=" + matricula + ", idTablaUsuario=" + usuario + '}';
     }
 }
