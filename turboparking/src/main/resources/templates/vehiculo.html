@@ -43,8 +43,7 @@
 
     <section>
         <div class="container info-prin">
-            <form class="row g-3 formulario" action="/{id}/vehiculo/actualizado" method="post"
-                th:each="veh : ${vehiculo}">
+            <div class="row g-3 formulario" th:each="veh : ${vehiculo}">
                 <div class="cuadrado bg-light container">
                     <div class="cont-user container">  
                         <img width="500" height="auto" src="/utilidades/ilustracion-vehiculo.png" alt="un vehiclo en estacionamiento">
@@ -91,14 +90,14 @@
 
                 <!--BOTONES-->
                 <div class="col-auto">
-                    <button type="submit" class="btn btn-primary"> Modificar </button>
+                    <button class="btn btn-primary"><a th:href="${'/' + veh.id + '/vehiculo/modificar'}" style="text-decoration:none; color: white; font-weight: bold">Modificar</a></button>
 
                     <!--BOTON ELIMINAR-->
-                    <button class="btn" style="background-color: #FF0000; margin-left: 460px;"><a
+                    <button class="btn" style="background-color: #FF0000; margin-left: 440px;"><a
                     th:href="${'/eliminar/vehiculo/' + veh.id}" style="text-decoration:none; color: white; font-weight: bold">Eliminar Vehiculo</a>
                     </button>
                 </div>
-            </form>
+            </div>
             <aside th:if="${#lists.isEmpty(vehiculo)}">
                 <h2 class="alert alert-light" style="text-align: center; font-size:20px; font-weight: bold;">Parece que no tienes vehiculos, registra uno</h2>
             </asode>

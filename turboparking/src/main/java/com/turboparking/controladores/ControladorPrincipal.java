@@ -151,12 +151,23 @@ public class ControladorPrincipal {
         return "vehiculo";
     }
     
-    @PostMapping("/{id}/vehiculo/actualizado")
-    public String actualizarVehiculo(@ModelAttribute Vehiculo vehiculo, @PathVariable int id) {
+    //MODIFICAR VEHICULO
+    @GetMapping("/{id}/vehiculo/modificar")
+    public String mostrarModificarVehiculo(@PathVariable int id, Model model) {
+        model.addAttribute("vehiculo", servicioVehiculo.cargarVehiculoId(id));
+        model.addAttribute("usuario", servicioVehiculo.cargarVehiculoId(id).getUsuario());
+        return "modificarvehiculo";
+    }
+
+    @PostMapping("/vehiculo/actualizado")
+    public String modificarVehiculo(@ModelAttribute Vehiculo vehiculo) {
+        int id = vehiculo.getUsuario().getId();
         servicioVehiculo.guardarVehiculo(vehiculo);
+        
         return "redirect:/" + id;
     }
     
+    //ELIMINAR VEHICULO
     @GetMapping("/eliminar/vehiculo/{id}")
     public String eliminarVehiculo(@PathVariable int id) {
         Vehiculo veh = servicioVehiculo.cargarVehiculoId(id);
