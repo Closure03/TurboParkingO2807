@@ -1,0 +1,21 @@
+* {
+    padding: 0px;
+    margin: 0px;
+    color: black;
+}
+
+/*ESTILOS DEL MAIN*/
+.principal {
+    background-image: url(/utilidades/fondo3.png);
+    background-size: cover;
+    padding: 40px 60px;
+}
+
+/*INFO PARQUEOS*/
+.mostrar-park {
+    margin: 50px;
+}
+
+.cuadrado a {
+    margin: 20px;
+}

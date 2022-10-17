@@ -8,6 +8,7 @@ import com.turboparking.entidades.Usuario;
 import com.turboparking.entidades.Vehiculo;
 import com.turboparking.servicios.UsuarioServicio;
 import com.turboparking.servicios.VehiculoServicio;
+import java.util.List;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
@@ -22,7 +23,7 @@ public class VehiculosUnitTest {
     
     @Autowired
     private UsuarioServicio miUsuario;
-    
+    /*
     @Test
     @Disabled //Ya testeado
     public void comprobarCreacionVehiculoSinApodo() {
@@ -86,7 +87,12 @@ public class VehiculosUnitTest {
     @Test
     @Disabled //Ya testeado
     public void comprobarConsultaDeVehiculoPorUsuario() {
-        Usuario miUsu = miUsuario.consultarUsuario(17);
-        miVehiculo.cargarVehiculoUsuario(miUsu);
+        Usuario miUsu = miUsuario.consultarUsuario(15);
+        List<Vehiculo> lista = miVehiculo.cargarVehiculoUsuario(miUsu);
+        
+        for (Vehiculo vehiculo : lista) {
+            System.out.println(vehiculo);
+        }
     }
+    */
 }

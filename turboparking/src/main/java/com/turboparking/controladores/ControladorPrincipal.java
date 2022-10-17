@@ -3,10 +3,14 @@
  */
 package com.turboparking.controladores;
 
+import com.turboparking.entidades.Parqueo;
 import com.turboparking.entidades.Usuario;
 import com.turboparking.entidades.Vehiculo;
+import com.turboparking.servicios.ParqueoServicio;
 import com.turboparking.servicios.UsuarioServicio;
 import com.turboparking.servicios.VehiculoServicio;
+import static java.lang.Math.round;
+import java.util.ArrayList;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -25,6 +29,9 @@ public class ControladorPrincipal {
 
     @Autowired
     private VehiculoServicio servicioVehiculo;
+
+    @Autowired
+    private ParqueoServicio servicioParqueo;
 
     //Aca se envia el controlador de URL 
     @GetMapping("/")
@@ -147,10 +154,10 @@ public class ControladorPrincipal {
         List<Vehiculo> veh = servicioVehiculo.cargarVehiculoUsuario(user);
         model.addAttribute("vehiculo", veh);
         model.addAttribute("user", user);
-        
+
         return "vehiculo";
     }
-    
+
     //MODIFICAR VEHICULO
     @GetMapping("/{id}/vehiculo/modificar")
     public String mostrarModificarVehiculo(@PathVariable int id, Model model) {
@@ -163,17 +170,17 @@ public class ControladorPrincipal {
     public String modificarVehiculo(@ModelAttribute Vehiculo vehiculo) {
         int id = vehiculo.getUsuario().getId();
         servicioVehiculo.guardarVehiculo(vehiculo);
-        
+
         return "redirect:/" + id;
     }
-    
+
     //ELIMINAR VEHICULO
     @GetMapping("/eliminar/vehiculo/{id}")
     public String eliminarVehiculo(@PathVariable int id) {
         Vehiculo veh = servicioVehiculo.cargarVehiculoId(id);
         Usuario usu = veh.getUsuario();
         int ident = usu.getId();
-        
+
         servicioVehiculo.eliminarVehiculo(id);
 
         return "redirect:/" + ident;
@@ -187,19 +194,19 @@ public class ControladorPrincipal {
 
         return "registrovehiculo";
     }
-    
+
     @PostMapping("/vehiculo/registro/validado")
     public String envioDeRegistroUsuarioDeVehiculo(@ModelAttribute Vehiculo veh, @RequestParam(value = "identificador", required = true) String identificador) {
         if ("".equals(veh.getApodoVehiculo())) {
             veh.setApodoVehiculo("Vehiculo");
             servicioVehiculo.guardarVehiculo(veh);
         }
-        
+
         servicioVehiculo.guardarVehiculo(veh);
 
         return "redirect:/" + identificador;
     }
-    
+
     /*
     @PostMapping("/vehiculo/registro/validado")
     public String envioDeRegistroUsuarioDeVehiculo(@ModelAttribute Vehiculo veh, @RequestParam(value = "usuario", required = false) Usuario usuario) {
@@ -215,5 +222,113 @@ public class ControladorPrincipal {
 
         return "indexsesion";
     }
+     */
+    //Controller Parqueadero
+    //Creación de parqueos
+    @GetMapping("/parqueo/{id}")
+    public String mostrarRegistroParqueo(@PathVariable int id, Model model) {
+        Usuario user = servicio.consultarUsuario(id);
+        List<Vehiculo> listaVeh = servicioVehiculo.cargarVehiculoUsuario(user);
+
+        model.addAttribute("parqueo", new Parqueo());
+        model.addAttribute("vehiculo", listaVeh);
+        return "parqueadero";
+    }
+
+    @PostMapping("/parqueo/creacion")
+    public String crearParqueo(@ModelAttribute Parqueo parking) {
+        int id = parking.getIdTablaVehiculo().getUsuario().getId();
+        parking.setHabilitado(true);
+        parking.setNumeroParqueo((int) round(Math.random() * 100));
+        servicioParqueo.crearParqueo(parking);
+
+        return "redirect:/" + id;
+    }
+
+    //consulta de parqueos
+    /*
+    @GetMapping("/parqueo/consulta/{id}")
+    public String consultarParqueo(@PathVariable int id, Model model) {
+        List<Parqueo> parqueo = new ArrayList<>();
+        Usuario user = servicio.consultarUsuario(id);
+        List<Vehiculo> veh = servicioVehiculo.cargarVehiculoUsuario(user);
+
+        for (Vehiculo vehiculo : veh) {
+            parqueo.add(servicioParqueo.consultarParqueoVehiculo(vehiculo));
+        }
+        
+        model.addAttribute("listParqueo", parqueo);
+        return "parqueoreservado";
+    }
     */
+    @GetMapping("/parqueo/consulta/{id}")
+    public String consultarParqueo(@PathVariable int id, Model model) {
+        List<Parqueo> parqueos =  new ArrayList<>();
+        Usuario user = servicio.consultarUsuario(id);
+        List<Vehiculo> veh = servicioVehiculo.cargarVehiculoUsuario(user);
+        List<Parqueo> todosParqueos = servicioParqueo.consultarTodosParqueo();
+         
+        for (Vehiculo vehiculo : veh) {
+            for (Parqueo parking : todosParqueos) {
+                if (vehiculo.getId() == parking.getIdTablaVehiculo().getId()) {
+                parqueos.add(servicioParqueo.consultarParqueoVehiculo(vehiculo));
+            }
+            }
+        }
+        System.out.println(parqueos);
+        model.addAttribute("listParqueo", parqueos);
+        return "parqueoreservado";
+    }
+
+    @GetMapping("/parqueo/eliminar/{id}")
+    public String eliminacionParqueo(@PathVariable int id) {
+        int ident = servicioParqueo.consultarParqueoId(id).getIdTablaVehiculo().getUsuario().getId();
+        servicioParqueo.eliminarParqueo(id);
+
+        return "redirect:/" + ident;
+    }
+    
+    //Modificar Parqueo
+        //Loader
+    @GetMapping("/loader")
+    public String mostrarLoader(){
+        return "loader";
+    }
+    
+    @GetMapping("/parqueo/modificar/{id}")
+    public String modificacionParqueo(@PathVariable int id, Model model){
+        List<Vehiculo> vehiculosSinParking = new ArrayList<>();
+        Parqueo parking = servicioParqueo.consultarParqueoId(id);
+        Usuario user = servicioParqueo.consultarParqueoId(id).getIdTablaVehiculo().getUsuario();
+        List<Vehiculo> vehList = servicioVehiculo.cargarVehiculoUsuario(user);
+        
+        for(Vehiculo veh : vehList){
+            if (veh.getId() != parking.getIdTablaVehiculo().getId()) {
+                vehiculosSinParking.add(veh);
+            }
+            
+        }
+        
+        model.addAttribute("vehiculo", vehiculosSinParking);
+        model.addAttribute("parqueo", parking);
+        
+        return "modificarparqueo";
+    }
+    
+    @PostMapping("/parqueo/modificado")
+    public String parqueoModificado(@ModelAttribute Parqueo parking){
+        int id = parking.getIdTablaVehiculo().getUsuario().getId();
+        servicioParqueo.actualizarParqueo(parking);
+        
+        return "redirect:/" + id;
+    }
+
+    @GetMapping("/parqueo/pdf/{id}")
+    public String parqueoPdf(@PathVariable int id, Model model) {
+        int ident = servicioParqueo.consultarParqueoId(id).getIdTablaVehiculo().getUsuario().getId();
+        
+        model.addAttribute("parqueoPdf", servicioParqueo.consultarParqueoId(id));
+        
+        return "redirect:/parqueo/consulta/" + ident;
+    }
 }

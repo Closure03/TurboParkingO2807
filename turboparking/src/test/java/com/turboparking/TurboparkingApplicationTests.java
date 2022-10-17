@@ -14,7 +14,7 @@ class TurboparkingApplicationTests {
     //TESTEO PARA EL CRUD DE USUARIO
     @Autowired
     private UsuarioServicio miServicio;
-    
+    /*
     @Test
     @Disabled //Ya se testeo
     public void verificarSiSeGuardaUnUsuarioNuevo() {
@@ -72,4 +72,5 @@ class TurboparkingApplicationTests {
     public void verificarSiCorreoFunciona() {
         System.out.println(miServicio.consultaUsuarioCorero("fabian@gmail.com"));
     }
+    */
 }

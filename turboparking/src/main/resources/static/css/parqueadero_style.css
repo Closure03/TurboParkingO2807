@@ -1,0 +1,52 @@
+* {
+    padding: 0px;
+    margin: 0px;
+    color: white;
+}
+
+/*ESTILOS DEL MAIN*/
+.principal {
+    background-image: url(/utilidades/fondo3.png);
+    background-size: cover;
+    padding: 40px 60px;
+}
+
+.formulario {
+    margin: 60px 0px;
+    font-weight: bolder;
+}
+
+.formulario form {
+    padding-top: 60px;
+}
+
+.formulario input {
+    padding: 5px;
+    border: 2px solid #7BA9FF;
+    border-radius: 5px;
+    background: inherit;
+}
+
+.formulario select {
+    padding: 5px 10px;
+    border: 2px solid #7BA9FF;
+    border-radius: 5px;
+    background: inherit;
+    margin:0px 10px;
+}
+
+.formulario select option {
+    background-color: white;
+    color: black;
+}
+
+.formulario button {
+    padding: 5px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #FF6D00;
+}
+
+.formulario span {
+    margin:0px 10px;
+}
